@@ -1,0 +1,75 @@
+# Who Hid in the Laundry Basket?
+
+A vertical Remotion short for Episode 1 of the "Who Hid?" animal guessing series. This project is built as a 1080 × 1920 YouTube Short and uses a soft storybook palette with layered shapes and motion.
+
+## Requirements
+
+- Node.js 18+
+- npm
+
+## Install
+
+```bash
+npm install
+```
+
+## Preview locally
+
+```bash
+npm run dev
+```
+
+Then open the browser URL shown by Remotion Studio.
+
+## Render the MP4
+
+```bash
+npm run render
+```
+
+The output is written to:
+
+```bash
+out/who-hid-rabbit.mp4
+```
+
+## Composition details
+
+- Composition name: WhoHidRabbit
+- Resolution: 1080 × 1920
+- FPS: 30
+- Duration: 60 seconds
+- Total frames: 1,800
+- Render entry: src/index.tsx
+
+## Narration and audio support
+
+The project includes a full timed narration script in src/WhoHidRabbit.tsx as a reusable cue list. It does not ship with a ready-made narrator track or sound effects asset because those are usually supplied externally.
+
+To add narration:
+
+1. Place your voice file in a folder such as public/ or assets/
+2. Import it into a separate Remotion audio layer or your editor pipeline
+3. Sync the timing to the narration cues in NARRATION_CUES
+
+Soft sound effects are kept in a separate track and intentionally omitted from the base render so the project can preview cleanly without missing media.
+
+## Scene checklist
+
+This project is designed to comply with the requested structure:
+
+- basket with loose lid and warm morning light
+- reusable cream rabbit with long ears and pink centers
+- hidden face before reveal
+- three-second guessing pause
+- exact reveal at 0:30
+- exactly three rabbit hops in the counting scene
+- smooth return to basket framing for the final loop
+
+## Asset notes
+
+This repo keeps everything self-contained with vector-like layered shapes and gradients, so no external illustration files are required.
+
+## If you want a narrated final export
+
+Use your preferred narration tool or editor to add a warm English voice track, then render the final MP4 with the timing in the NARRATION_CUES list.
