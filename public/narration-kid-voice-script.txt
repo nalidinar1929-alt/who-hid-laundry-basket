@@ -1,0 +1,100 @@
+# Who Hid in the Laundry Basket?
+
+A vertical Remotion short for Episode 1 of the "Who Hid?" animal guessing series. This project is built as a 1080 × 1920 YouTube Short and uses a soft storybook palette with layered shapes and motion.
+
+## Requirements
+
+- Node.js 18+
+- npm
+
+## Install
+
+```bash
+npm install
+```
+
+## Preview locally
+
+```bash
+npm run dev
+```
+
+Then open the browser URL shown by Remotion Studio.
+
+## Render the MP4
+
+```bash
+npm run render
+```
+
+The output is written to:
+
+```bash
+out/who-hid-rabbit.mp4
+```
+
+## Composition details
+
+- Composition name: WhoHidRabbit
+- Resolution: 1080 × 1920
+- FPS: 30
+- Duration: 60 seconds
+- Total frames: 1,800
+- Render entry: src/index.tsx
+
+## Kid-voice narration support
+
+This project includes a reusable narration cue list and a safe audio hook so the composition can render without a spoken track. I cannot generate a real child voice file from inside this environment, but the project is ready for a supplied narration file.
+
+To add a kid voice:
+
+1. Generate or supply a warm, cheerful child-like English narration track in MP3 or WAV format.
+2. Save it as `public/narration-kid-voice.mp3` or another file inside `public/`.
+3. In `src/NarrationAudio.tsx`, replace:
+
+```ts
+export const KID_NARRATION_PATH: string | null = null;
+```
+
+with:
+
+```ts
+export const KID_NARRATION_PATH = "/narration-kid-voice.mp3";
+```
+
+4. Re-run:
+
+```bash
+npm run render
+```
+
+The audio will play synced to the 60-second timeline if the file is present. If no file is supplied, the composition still renders successfully without narration.
+
+## Narration script
+
+Use this text for the voice track and sync it to the timestamps below:
+
+- 0:00–0:08 — "Who hid in the laundry basket?"
+- 0:08–0:16 — "Did you hear that? Tap, tap! Someone's in there."
+- 0:16–0:24 — "One long ear … and two! Hold up two fingers. Wiggle, wiggle!"
+- 0:24–0:27 — "Who could it be? Say your guess!"
+- 0:30–0:38 — "It's a rabbit! Look at that tiny blue cape!"
+- 0:38–0:46 — "Tap your knees with me. Hop … hop … hop!"
+- 0:46–0:54 — "Where did the rabbit go? There it is! Look at that wiggly nose."
+- 0:54–1:00 — "Bye, little rabbit! Oh … it's hiding again!"
+
+## Scene checklist
+
+This project is designed to comply with the requested structure:
+
+- basket with loose lid and warm morning light
+- reusable cream rabbit with long ears and pink centers
+- hidden face before reveal
+- three-second guessing pause
+- exact reveal at 0:30
+- exactly three rabbit hops in the counting scene
+- smooth return to basket framing for the final loop
+
+## Asset notes
+
+This repo keeps everything self-contained with vector-like layered shapes and gradients, so no external illustration files are required.

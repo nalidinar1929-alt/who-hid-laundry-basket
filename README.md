@@ -4,6 +4,7 @@ import {
   interpolate,
   useCurrentFrame,
 } from "remotion";
+import { NarrationAudio } from "./NarrationAudio";
 
 const W = 1080;
 const H = 1920;
@@ -240,7 +241,10 @@ const getRabbitCenter = (frame: number) => {
     return { x: CX, y: 1030 + Math.sin((frame - 1500) * 0.7) * 18 };
   }
 
-  return { x: CX, y: 1050 + interpolate(frame, [1680, 1800], [0, 180], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) };
+  return {
+    x: CX,
+    y: 1050 + interpolate(frame, [1680, 1800], [0, 180], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }),
+  };
 };
 
 const Rabbit = ({ frame }: { frame: number }) => {
@@ -483,7 +487,7 @@ export const WhoHidRabbit = () => {
       <GuessText frame={frame} />
       <QuietGuessPrompt frame={frame} />
       <NarrationOverlay frame={frame} />
+      <NarrationAudio />
     </AbsoluteFill>
   );
 };
-
